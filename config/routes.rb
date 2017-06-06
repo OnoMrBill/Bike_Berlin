@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   resources :products
-=======
->>>>>>> 020f6665b4521c9cfe7dd42f2e53d6e38d7c8f04
+
   get 'static_pages/about'
 
   get 'static_pages/contact'
