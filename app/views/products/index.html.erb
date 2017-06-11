@@ -4,26 +4,10 @@
   Products
 </h1>
 
-<div class="container" id=products>
+<div class="container" id="products">
   <div class="row">
     <% @products.each do |product| %>
-      <%= link_to product do %>
-        <div class="card">
-          <div class="wrap">
-            <%= image_tag(product.image_url, class: "card-img-top") %>
-          </div>
-          <div class="card-block">
-            <div id="CardTitle_Share">
-              <h4 class="card-title"><%= product.name %></h4>
-            </div>
-            <p class="card-text"><%= product.description %></p>
-          </div>
-          <div class="card-footer">
-            <strong><%= product.price %></strong><span><strong> EUR</strong></span>
-          </div>
-        </div>
-        <!--end card-->
-      <% end %>
+      <%= render product %>
     <% end %>
   </div>
 </div>
