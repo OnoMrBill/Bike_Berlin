@@ -41,9 +41,12 @@
         </div> <!--end navbar-header -->        
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/static_pages/about">About</a></li>
+            <!-- <li><a href="/">Home</a></li> -->
+            <li><%= link_to 'Home', root_path %></li>
+            <!-- <li><a href="/products">Products</a></li> -->
+            <li><%= link_to 'Products', products_path %></li>
+            <!-- <li><a href="/static_pages/about">About</a></li> -->
+            <li><%= link_to 'About', static_pages_about_path %></li>
             <!-- <li><a href="#work">Work</a></li> -->
             <!-- 
             <li class="dropdown">
@@ -54,7 +57,8 @@
                 <li><a href="#work_project2">Project 2</a></li>
               </ul>
                -->
-            <li><a href="/static_pages/contact">Contact</a></li>
+            <!-- <li><a href="/static_pages/contact">Contact</a></li> -->
+            <li><%= link_to 'Contact', static_pages_contact_path %></li>
           </ul>
         </div>
       </div> <!-- end nav container-->      
