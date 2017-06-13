@@ -890,7 +890,7 @@ label {
     width: 100%;
     position: absolute;
     text-align: center;
-    left: -50;
+    left: -50px;
     z-index: 2;
     color: white;
     text-shadow: 2px 2px 8px #545454
@@ -943,13 +943,13 @@ label {
     }
 */    
 .Intro>h1 {
-        font-family: peachy-keen-jf, sans-serif;
-        font-size: 40px
-    }
-    .Intro>h3 {
-        font-size: 20px
-    }
+    font-family: peachy-keen-jf, sans-serif;
+    font-size: 40px
 }
+.Intro>h3 {
+    font-size: 20px
+}
+
 /*.btn-outline-warning,
 .btn-warning {
     height: 36px;
@@ -1202,7 +1202,7 @@ label {
     width: 100%;
     position: absolute;
     text-align: center;
-    left: -50;
+    left: -50px;
     z-index: 2;
     color: white;
     text-shadow: 2px 2px 8px #545454
