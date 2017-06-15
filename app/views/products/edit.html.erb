@@ -1,6 +1,10 @@
-<h1>Editing Product</h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="c-wrapper">
+	<div class="center-div">
+		<h1>Editing Product</h1>
+		<%= render 'form', product: @product %>
+		<%= link_to 'Show', @product %> |
+		<!-- link_to 'Back', products_path -->
+		<%= link_to 'Back', request.referer %>
+		<!-- link_to 'Back', request.referer.present? ? request.referer : default_path -->
+	</div>
+</div>

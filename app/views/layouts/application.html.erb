@@ -25,7 +25,7 @@
 
   <body>
     <!--navbar starts here-->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
       <div class="container-fluid">
         <div class="navbar-header">
@@ -36,7 +36,8 @@
             <span class="icon-bar"></span>
           </button>          
           <div class="projectName navbar-brand">
-            <a href="/">Bike Berlin</a>
+            <!-- <a href="/">Bike Berlin</a> -->
+            <%= link_to 'Bike Berlin', root_path %>
           </div> <!--end projectName -->          
         </div> <!--end navbar-header -->        
         <div class="navbar-collapse collapse">
@@ -59,6 +60,17 @@
                -->
             <!-- <li><a href="/static_pages/contact">Contact</a></li> -->
             <li><%= link_to 'Contact', static_pages_contact_path %></li>
+            <li>
+              <%= form_tag("/products", method:"get", class:"navbar-form navbar-left", role:"search") do %>
+                <!-- < label_tag(:q, "Search for:") > -->
+                <!-- < text_field_tag(:q) > -->
+                <!-- <div class="form-group"> -->
+                  <%= text_field_tag "q", nil, placeholder:"search bikes...", class:"form-control" %>
+                <!-- </div> -->
+                <%= submit_tag("Search", class:"form-control btn btn-default") %>
+                <!-- submit_tag("Search", class:"navbar-form form-control btn btn-default") -->
+              <% end %>
+            </li>
           </ul>
         </div>
       </div> <!-- end nav container-->      
@@ -71,12 +83,6 @@
       <div class="text-muted">Copyright <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> 2017 Bill Fennell. All rights reserved.</div>
     <!-- </div> -->
     </footer>
-
-    <!-- <footer id="footer" class="footer"> -->
-      <!-- <div class="container"> -->
-        <!-- <p class="text-muted">&copy; 2015 Bike Berlin. All rights reserved.</p> -->
-      <!-- </div> -->
-    <!-- </footer> -->
 		  
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -87,12 +93,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/0c05259ce5.js"></script>
-
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <!--
-    // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>    
-    // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  -->
 
     <!--
     <script src="https://use.typekit.net/zmv6zel.js"></script>
