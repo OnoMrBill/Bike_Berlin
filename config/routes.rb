@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-	root 'static_pages#landing_page'
+  resources :users
+  # resources :users, except: [:index]
 
 	# root 'products#index'
 	# 5.1 - Reroute your root page to a different page on your site...
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :products
 
   resources :orders, only: [:index, :show, :create, :destroy]
+
+  root 'static_pages#landing_page'
 
   get 'static_pages/about'
 
