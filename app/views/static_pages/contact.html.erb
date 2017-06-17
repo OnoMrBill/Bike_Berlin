@@ -1,5 +1,36 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 	<h1>Contact Bike Berlin</h1>
 	<h2>How To Find Bike Berlin</h2>
 	<p>First of all... we're in Berlin!</p>
-</div>	
+</div>	 -->
+
+
+<div class="c-wrapper">
+	<div class="center-div">
+		<!-- <div class="container" style="width: 600px;"> -->
+			<h1>Contact Us</h1>
+
+			<%= flash[:notice] %>
+
+			<%= form_tag("/static_pages/thank_you") do %>
+				<div class="row" style="width: 600px;">
+				  <div class="col-md-12">
+				    <div class="form-group">
+				      <%= label_tag :name %>
+				      <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name" %>
+				    </div>      
+				    <div class="form-group">
+				      <%= label_tag :email, "Email Address" %>
+				      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
+				    </div>
+				    <div class="form-group">
+				      <%= label_tag :message %>
+				      <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
+				    </div>      
+				  </div>
+				</div>
+				<%= submit_tag "Send" %>   
+			<% end %>
+		<!-- </div> -->
+	</div>
+</div>
