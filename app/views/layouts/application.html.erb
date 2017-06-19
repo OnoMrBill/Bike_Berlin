@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>Bike Berlin</title>
+
+    <script src="https://use.typekit.net/zmv6zel.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +17,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
     
-    <!-- #%#= csrf_meta_tags % -->
+    <%= csrf_meta_tags %>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,8 +54,13 @@
                 <%= text_field_tag "q", nil, placeholder:"search bikes...", class:"form-control" %>
                 <%= submit_tag("Search", class:"form-control btn btn-default") %>
 
-                <%= link_to 'Login', new_user_path, class:"form-control btn btn-warning", role:"button" %>
-                <%= link_to 'Register', new_user_path, class:"form-control btn btn-success", role:"button" %>
+                <% if user_signed_in? %>
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"form-control btn btn-warning", role:"button") %>
+                <% else %>
+                  <%= link_to('Login', new_user_session_path, class:"form-control btn btn-success", role:"button") %>
+                <% end %>
+
+                <%= link_to 'Register', new_user_registration_path, class:"form-control btn btn-primary", role:"button" %>
               <% end %>
             </li>
           </ul>
@@ -59,6 +68,18 @@
       </div> <!-- end nav container-->      
     </nav><!-- end navbar-->
 
+    <!-- Flash Notice Tags -->
+    <div id="notice" class="notice alert fade in"><%= notice %><%= alert %></div>
+
+<!--    <script>
+      $('#navLinks ul li').removeClass('active');
+      $('#navLinks ul li:nth-child(1)').addClass('active');
+    </script>
+-->
+
+<!--     <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+ -->
 		<%= yield %>
 
     <footer id="footer" class="footer">

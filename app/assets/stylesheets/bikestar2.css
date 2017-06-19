@@ -508,7 +508,7 @@ div.actions {
 #notice {
     color: green;
     position: fixed;
-    top: 74px;
+    top: 55px;
     left: 50%;
     margin-left: -200px;
     z-index: 100;
@@ -517,7 +517,7 @@ div.actions {
 #alert {
     color: red;
     position: fixed;
-    top: 74px;
+    top: 55px;
     left: 50%;
     margin-left: -200px;
     z-index: 100;
@@ -551,7 +551,7 @@ div.actions {
     list-style: square
 }
 label {
-    display: block
+    display: block;
 }
 .alert,
 .notice {
@@ -641,7 +641,7 @@ div.actions {
     list-style: square
 }
 label {
-    display: block
+    display: block;
 }
 .alert,
 .notice {
