@@ -69,17 +69,16 @@
     </nav><!-- end navbar-->
 
     <!-- Flash Notice Tags -->
-    <div id="notice" class="notice alert fade in"><%= notice %><%= alert %></div>
+    <% if notice %>
+      <!-- <p id="notice" class="alert alert-info"><= notice ></p> -->
+      <div id="notice" class="animated fadeOut alert alert-success" role="alert"><%= notice %><%= alert %></div>
+    <% end %>    
+    <% if alert %>
+      <!-- <p id="notice" class="alert alert-info"><= notice ></p> -->
+      <div id="alert" class="animated fadeOut alert alert-danger" role="alert"><%= notice %><%= alert %></div>
+    <% end %>     
+    <!-- <div id="notice" class="notice alert fade in"><= notice ><= alert ></div> -->
 
-<!--    <script>
-      $('#navLinks ul li').removeClass('active');
-      $('#navLinks ul li:nth-child(1)').addClass('active');
-    </script>
--->
-
-<!--     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
- -->
 		<%= yield %>
 
     <footer id="footer" class="footer">

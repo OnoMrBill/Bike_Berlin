@@ -1,15 +1,16 @@
 <div class="c-wrapper">
   <div class="center-div">
-    <h2>Log in</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-horizontal") do |f| %>
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <!-- <h2>Log in</h2> -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-horizontal form-signin") do |f| %>
       <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        <%= f.label :email, class:"sr-only" %>
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email address", required: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        <%= f.label :password, class:"sr-only" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password", required: true %>
       </div>
 
       <% if devise_mapping.rememberable? -%>

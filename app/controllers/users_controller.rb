@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+
+  # ADDING AUTHENTICATION
+  # Keep in mind, currently you only prevent users from accessing other users' profiles when they are signed in. 
+  # Someone who isn't signed in can just access all user Shows pages. 
+  # Add before_filter :authenticate_user! (from the previous Exercise) above the load_and_authorize_resource line 
+  # to make sure the user is signed in before trying to access the users_controller. 
+  # Depending on the app you are building and the features you would like it to have, 
+  # you might want to create an exception for the index action. This way, people can see all the users of your app 
+  # without signing in. 
+  # You create an exception like this: before_action :authenticate_user!, except: [:show, :index].  
 
   # GET /users
   # GET /users.json
