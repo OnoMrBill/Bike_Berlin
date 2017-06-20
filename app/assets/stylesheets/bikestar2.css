@@ -1,5 +1,6 @@
-/*
+/* Beginning of fading support section...
  * Animation configurations ( duration and fill mode )
+ * This section handles the alert message fading...
 */
 .animated {
     -webkit-animation-duration: 4s;
@@ -22,6 +23,25 @@
     -webkit-animation-name: fadeOut;
     animation-name: fadeOut;
 }
+#notice {
+    color: green;
+    position: fixed;
+    top: 55px;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 100;
+    width: 400px
+}
+#alert {
+    color: red;
+    position: fixed;
+    top: 55px;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 100;
+    width: 400px
+}
+/* End of fading support section... */
 
 .new-product-menu {
     text-align: center;
@@ -530,24 +550,7 @@ div.field,
 div.actions {
     margin-bottom: 10px
 }
-#notice {
-    color: green;
-    position: fixed;
-    top: 55px;
-    left: 50%;
-    margin-left: -200px;
-    z-index: 100;
-    width: 400px
-}
-#alert {
-    color: red;
-    position: fixed;
-    top: 55px;
-    left: 50%;
-    margin-left: -200px;
-    z-index: 100;
-    width: 400px
-}
+
 .field_with_errors {
     padding: 2px;
     background-color: red;
