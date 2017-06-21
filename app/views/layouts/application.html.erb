@@ -70,14 +70,11 @@
 
     <!-- Flash Notice Tags -->
     <% if notice %>
-      <!-- <p id="notice" class="alert alert-info"><= notice ></p> -->
       <div id="notice" class="animated fadeOut alert alert-success" role="alert"><%= notice %><%= alert %></div>
     <% end %>    
     <% if alert %>
-      <!-- <p id="notice" class="alert alert-info"><= notice ></p> -->
       <div id="alert" class="animated fadeOut alert alert-danger" role="alert"><%= notice %><%= alert %></div>
     <% end %>     
-    <!-- <div id="notice" class="notice alert fade in"><= notice ><= alert ></div> -->
 
 		<%= yield %>
 

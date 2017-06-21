@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+
+<!-- Flash Notice Tags -->
+<% if notice %>
+  <div id="notice" class="animated fadeOut alert alert-success" role="alert"><%= notice %><%= alert %></div>
+<% end %>    
+<% if alert %>
+  <div id="alert" class="animated fadeOut alert alert-danger" role="alert"><%= notice %><%= alert %></div>
+<% end %>
 
 <div class="menu">
   Products

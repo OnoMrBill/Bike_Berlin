@@ -1,14 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="c-wrapper">
+  <div class="center-div">
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+		<h2 class="form-signin-heading">Viewing User</h2>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+    <!-- Flash Notice Tags -->
+    <% if notice %>
+      <div id="notice" class="animated fadeOut alert alert-success" role="alert"><%= notice %><%= alert %></div>
+    <% end %>    
+    <% if alert %>
+      <div id="alert" class="animated fadeOut alert alert-danger" role="alert"><%= notice %><%= alert %></div>
+    <% end %>  
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+		<p>
+		  <strong>First name:</strong>
+		  <%= @user.first_name %>
+		</p>
+
+		<p>
+		  <strong>Last name:</strong>
+		  <%= @user.last_name %>
+		</p>
+
+		<p>
+		  <strong>Email address:</strong>
+		  <%= @user.email %>
+		</p>
+
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+	</div>
+</div>
