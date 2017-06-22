@@ -106,11 +106,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.5.2)
-      activerecord (>= 3.2)
-      activesupport (>= 3.2)
-      choice (~> 0.2.0)
-      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.1.1)
@@ -177,7 +172,6 @@ DEPENDENCIES
   pg
   puma (~> 3.7)
   rails (~> 5.1.1)
-  rails-erd
   sass-rails (~> 5.0)
   sqlite3
   turbolinks (~> 5)
