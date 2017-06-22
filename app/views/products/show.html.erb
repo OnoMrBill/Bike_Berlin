@@ -27,6 +27,14 @@
 				  <%= @product.colour %>
 				<!-- </div> -->
 			</p>
+
+			<% if @product.highest_rating_comment.body %>
+				<p>
+					<strong>Fan Comment:</strong>
+					<%= @product.highest_rating_comment.body %>
+				</p>
+			<% end %>
+
 			<div class="actions">
 				<%= link_to 'Edit', edit_product_path(@product) %> |
 				<%= link_to 'Back', products_path %>
