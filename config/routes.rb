@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 	# root 'products#index'
 	# 5.1 - Reroute your root page to a different page on your site...
 
-  resources :products
+  # resources :products
+
+  resources :products do
+    resources :comments
+  end  
 
   resources :orders, only: [:index, :show, :create, :destroy]
 

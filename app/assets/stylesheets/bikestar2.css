@@ -46,7 +46,7 @@
 /* Begin Product Show section... */
 
 #showProduct {
-    width:900px;
+    max-width:900px;
     /*width: 80%;*/
     display: flex;
     flex-direction: column;

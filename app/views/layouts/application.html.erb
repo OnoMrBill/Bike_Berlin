@@ -14,6 +14,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
     
     <%= csrf_meta_tags %>
@@ -75,6 +77,8 @@
       <div id="alert" class="animated fadeOut alert alert-danger" role="alert"><%= notice %><%= alert %></div>
     <% end %>     
 
+    <div class="clearfix"></div>
+
 		<%= yield %>
 
     <footer id="footer" class="footer">
@@ -84,7 +88,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script -->
 
     <!-- Bootstrap core JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

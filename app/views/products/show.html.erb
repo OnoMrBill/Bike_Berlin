@@ -1,44 +1,48 @@
 <div class="c-wrapper">
 	<div class="center-div">
-		<div class="container" id="showProduct">
-		
-		<div class="col-sm-6 col-md-8">
-		  <%= image_tag(@product.image_url, class: "thumbnail productimage img-responsive") %>
-			
-			<p>
-			<h2>
-			  	<%= @product.name %>
-			</h2>
-			</p>
-			
-			<strong>Description:</strong>
-			<p>		  
-				<%= @product.description %>
-			</p>
-			
-			<strong>Colour:</strong>
-			<p>
-			  <%= @product.colour %>
-			</p>
-			
-			<strong>Price:</strong>
-			<p>		  
-				<%= @product.price %>
-			</p>
-			
-			<strong>Top Review:</strong>
-			<p>
-			<% if (@product.highest_rating_comment) %>
-				<%= @product.highest_rating_comment.body %>
-			<% end %>
-			</p>
+		<div class="container-fluid" id="showProduct">
+			<div class="col-sm-6 col-md-8">
+		  	<%= image_tag(@product.image_url, class: "thumbnail img-responsive") %>
+				<p>
+					<h2>
+					  	<%= @product.name %>
+					</h2>
+				</p>
+				
+				<strong>Description:</strong>
+				<p>		  
+					<%= @product.description %>
+				</p>
+				
+				<strong>Colour:</strong>
+				<p>
+				  <%= @product.colour %>
+				</p>
+				
+				<strong>Price:</strong>
+				<p>		  
+					<span class="glyphicon glyphicon-eur" aria-hidden="true"></span>&nbsp;
+					<%= @product.price %>
+				</p>
+				
+				<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
 
-			<div class="actions">
-				<!-- link_to 'Edit', edit_product_path(@product) > | -->
-				<%= link_to 'Back', products_path, class:"btn btn-warning" %>
+				<% if (@product.highest_rating_comment) %>
+					<strong>Top Review:</strong>
+					<p>
+						<em><%= @product.highest_rating_comment.body %></em>
+					</p>
+				<% end %>
+
+				<%= render 'new_comment' %>
+
+				<%= render 'comments' %><br>
+
+				<div class="actions">
+					<!-- link_to 'Edit', edit_product_path(@product) > | -->
+					<%= link_to 'Back', products_path, class:"btn btn-warning" %>
+				</div>
 			</div>
-		</p>
-	</div>
 		</div>
 	</div>
 </div>
