@@ -17,8 +17,12 @@
       <%= render product %>
     <% end %>
   </div>
+  <hr>
+  <%= will_paginate @products, class:"flickr_pagination" %><br>
+  <div class="center"><small><em>(<%= @products.total_entries.to_s + " products..." %>)</small></em></div>  
+  <hr>
 </div>
 
 <div class="new-product-menu">
-	<%= link_to 'New Product', new_product_path %>
+	<%= link_to 'New Product', new_product_path, class:"btn btn-success", role:"button" %>
 </div>

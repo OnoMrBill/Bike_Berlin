@@ -1,3 +1,7 @@
+<% if (@comments.total_entries > @comments.per_page) %>
+  <hr>
+  <%= will_paginate @comments, class:"flickr_pagination" %>  
+<% end %>  
 <div class="product-reviews">
   <% @comments.each do |comment| %>
     <hr>
@@ -7,6 +11,11 @@
       <p><%= comment.body %></p>
     	<p class="rated" data-score="<%= comment.rating %>"></p>        
     </div>
+  <% end %>
+  <% if (@comments.total_entries > @comments.per_page) %>
+    <hr>
+    <%= will_paginate @comments, class:"flickr_pagination" %><br>
+    <div class="center"><small><em>(<%= @comments.total_entries.to_s + " comments..." %>)</small></em></div>
   <% end %>
   <hr>
 </div>
