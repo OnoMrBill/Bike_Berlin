@@ -5,8 +5,18 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        <%= f.label :first_name, class:"sr-only" %>
+        <%= f.text_field :first_name, id: :user_first_name, class:"form-control", placeholder:"First name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name, class:"sr-only" %>
+        <%= f.text_field :last_name, id: :user_last_name, class:"form-control", placeholder:"Last name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, class:"sr-only" %>
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -14,26 +24,26 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+        <%= f.label :password, class:"sr-only" %> <i>(leave blank if you don't want to change it)</i>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password" %>
+        <!-- if @minimum_password_length -->
+          <!-- <br /> -->
+          <!-- <em>< @minimum_password_length > characters minimum</em> -->
+        <!-- end -->
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        <%= f.label :password_confirmation, class:"sr-only" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Re-enter password" %>
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-        <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
+        <%= f.label :current_password, class:"sr-only" %> <i>(we need your current password to confirm your changes)</i>
+        <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Current password" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "Update", class:"btn btn-warning" %>
       </div>
     <% end %>
 

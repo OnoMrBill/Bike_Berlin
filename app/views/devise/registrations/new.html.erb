@@ -5,25 +5,35 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        <%= f.label :first_name, class:"sr-only" %>
+        <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"First name" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        <%= f.label :last_name, class:"sr-only" %>
+        <%= f.text_field :last_name, class:"form-control", placeholder:"Last name" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        <%= f.label :email, class:"sr-only" %>
+        <%= f.email_field :email, class:"form-control", placeholder:"Email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class:"sr-only" %>
+        <!-- if @minimum_password_length -->
+        <!-- em>(< @minimum_password_length > characters minimum)</em -->
+        <!-- end -->
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password (6 characters minimum)" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class:"sr-only" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Re-enter password" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", class:"btn btn-success", role:"button" %>
       </div>
     <% end %>
 
