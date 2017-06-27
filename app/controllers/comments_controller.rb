@@ -16,6 +16,13 @@ class CommentsController < ApplicationController
   end
 
 	def destroy
+    @comment = Comment.find(params[:id])
+    product = @comment.product
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to product, notice: 'Review was successfully destroyed.' }
+      format.json { head :no_content }    
+    end
 	end
 
 	private

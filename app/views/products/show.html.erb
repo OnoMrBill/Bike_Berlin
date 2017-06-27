@@ -25,14 +25,14 @@
 					<%= @product.price %>
 				</p>
 				
-				<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+				<p>Average Rating: <span class="rated" data-score="<%= @product.average_rating %>"></span> </p>
 
-				<% if (@product.highest_rating_comment) %>
-					<strong>Top Review:</strong>
-					<p>
-						<em><%= @product.highest_rating_comment.body %></em>
-					</p>
-				<% end %>
+				<!-- if (@product.highest_rating_comment) -->
+					<!-- <strong>Top Review:</strong> -->
+					<!-- <p> -->
+						<!-- <em>< @product.highest_rating_comment.body </em> -->
+					<!-- </p> -->
+				<!-- < end > -->
 
 				<%= render 'new_comment' %>
 
