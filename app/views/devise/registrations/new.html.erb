@@ -16,7 +16,7 @@
 
       <div class="field">
         <%= f.label :email, class:"sr-only" %>
-        <%= f.email_field :email, class:"form-control", placeholder:"Email" %>
+        <%= f.email_field :email, class:"form-control", placeholder:"Email", required: true %>
       </div>
 
       <div class="field">
@@ -24,12 +24,12 @@
         <!-- if @minimum_password_length -->
         <!-- em>(< @minimum_password_length > characters minimum)</em -->
         <!-- end -->
-        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password (6 characters minimum)" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password (6 characters minimum)", required: true %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation, class:"sr-only" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Re-enter password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Re-enter password", required: true %>
       </div>
 
       <div class="actions">

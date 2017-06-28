@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
 	validates :name, presence: true
+	validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg)$}i, :alert => "Not a valid image file...", multiline: true
 
 	has_many :orders
 	has_many :comments
