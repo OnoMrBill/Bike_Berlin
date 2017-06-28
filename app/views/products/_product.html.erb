@@ -1,7 +1,12 @@
       <%= link_to product do %>
         <div class="card">
           <div class="wrap">
-            <%= image_tag(product.image_url, class: "card-img-top") %>
+            <!-- image_tag(product.image_url, class: "card-img-top") -->
+            <% if asset_exists? "#{product.image_url}" %>
+              <%= image_tag("#{product.image_url}", class: "card-img-top") %>
+            <% else %>
+              <%= image_tag("noimg.jpg", class: "card-img-top") %>
+            <% end %>            
           </div>
           <div class="card-block">
             <div id="CardTitle_Share">

@@ -2,7 +2,12 @@
 	<div class="center-div">
 		<div class="container-fluid" id="showProduct">
 			<div class="col-sm-6 col-md-8">
-		  	<%= image_tag(@product.image_url, class: "thumbnail img-responsive") %>
+		  	<!-- image_tag(@product.image_url, class: "thumbnail img-responsive") -->
+        <% if asset_exists? "#{@product.image_url}" %>
+          <%= image_tag("#{@product.image_url}", class: "thumbnail img-responsive") %>
+        <% else %>
+          <%= image_tag("noimg.jpg", class: "thumbnail img-responsive") %>
+        <% end %>            
 				<p>
 					<h2>
 					  	<%= @product.name %>

@@ -12,7 +12,7 @@ describe Order do
   context "user_id and product_id are present" do
   	let(:order) { Order.create!(user_id: 1, product_id: 1) }
 
-    it "is not valid without a name" do
+    it "is not valid without user_id and product_id" do
   		expect(Order.new(user_id: nil, product_id: nil)).not_to be_valid
   	end
   end
