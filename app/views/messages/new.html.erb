@@ -1,0 +1,44 @@
+<div class="c-wrapper">
+	<div class="center-div">
+		<h1>Contact Us</h1>
+
+		<%= flash[:notice] %>
+
+		<!-- form_tag("/static_pages/thank_you") do -->
+		<!-- form_for @message do |f| -->
+		<!-- form_with(model: @message, local: true, url: messages_thank_you_path) do |f| -->
+		<%= form_with model: @message, url: { action: "create" }, local: true do |form| %>
+			  <% if @message.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this contact message from being sent:</h2>
+			      <ul>
+			      <% @message.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>			
+			<div class="row" style="width: 600px;">
+			  <div class="col-md-12">
+			    <div class="form-group">
+			      <%= form.label :name %>
+			      <%= form.text_field :name, class:"form-control", placeholder:"Enter Name" %>
+			    </div>      
+			    <div class="form-group">
+			      <%= form.label :email, "Email Address" %>
+			      <%= form.text_field :email, class:"form-control", placeholder:"Enter Email" %>
+			    </div>
+			    <div class="form-group">
+			      <%= form.label :content %>
+			      <%= form.text_area :content, class:"form-control", placeholder:"Enter Message"%>
+			      <!-- , required: true -->
+			      <!-- , class:"sr-only" -->
+			    </div>      
+			  </div>
+			</div>
+		  <div class="actions">
+		    <%= form.submit "Send Message", class:"form-control btn btn-success", role:"button" %>
+		  </div>				
+		<% end %>
+	</div>
+</div>

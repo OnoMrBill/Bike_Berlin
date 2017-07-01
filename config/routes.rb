@@ -19,16 +19,20 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
 
-  get 'static_pages/contact'
+  # get 'static_pages/contact'
+  get 'messages/new'
 
   get 'static_pages/index'
 
-  post 'static_pages/thank_you'
+  # post 'static_pages/thank_you'
+  post 'messages/thank_you'
 
-  # Bike_Berlin::Application.routes.draw do
-  #   resources :products, only: [:index]
-  #   root to: "products#index"
-  # end  
+  post 'messages/new'
+
+  Bike_Berlin::Application.routes.draw do |map|
+    resources :messages
+    root :to => "messages#new"
+  end
 
 	  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
