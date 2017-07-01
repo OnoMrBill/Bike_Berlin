@@ -4,9 +4,6 @@
 
 		<%= flash[:notice] %>
 
-		<!-- form_tag("/static_pages/thank_you") do -->
-		<!-- form_for @message do |f| -->
-		<!-- form_with(model: @message, local: true, url: messages_thank_you_path) do |f| -->
 		<%= form_with model: @message, url: { action: "create" }, local: true do |form| %>
 			  <% if @message.errors.any? %>
 			    <div id="error_explanation">
