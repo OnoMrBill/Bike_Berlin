@@ -11,6 +11,7 @@ require 'rails_helper'
   # end
 
 describe Product do
+  # Context blocks are used to group similar tests together...
   context "when the product has comments" do
   	let(:product) { Product.create!(name: "race bike") }
   	let(:user) { User.create!(email: "test@email.com", password: "testing") }

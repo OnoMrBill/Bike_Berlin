@@ -36,12 +36,19 @@ require 'rails_helper'
   #   end
   # end
 
-describe User do
-  context "email and password are present" do
-  	let(:user) { User.create!(email: "test@email.com", password: "testing") }
+# describe User do
+#   context "email and password are present" do
+#   	let(:user) { User.create!(email: "test@email.com", password: "testing") }
 
-    it "is not valid without email and password" do
-  		expect(User.new(email: nil, password: nil)).not_to be_valid
-  	end
+#     it "is not valid without email and password" do
+#   		expect(User.new(email: nil, password: nil)).not_to be_valid
+#   	end
+#   end
+# end
+
+describe User, type: :model do
+  it "should not validate users without an email address" do
+    @user = FactoryGirl.build(:user, email: "not_an_email")
+    expect(@user).to_not be_valid
   end
 end

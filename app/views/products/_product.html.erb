@@ -15,7 +15,7 @@
             <p class="card-text"><%= product.description %></p>
           </div>
           <div class="card-footer">
-            <strong><%= product.price %></strong><span class="glyphicon glyphicon-eur" aria-hidden="true"><!-- <strong> EUR</strong> --></span>
+            <strong><%= number_to_euro("#{product.price}") %></strong><!-- <span class="glyphicon glyphicon-eur" aria-hidden="true"><strong> EUR</strong></span> -->
           </div>
         </div>
         <!--end card-->

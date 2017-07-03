@@ -26,25 +26,22 @@
 				
 				<strong>Price:</strong>
 				<p>		  
-					<span class="glyphicon glyphicon-eur" aria-hidden="true"></span>&nbsp;
-					<%= @product.price %>
+					<!-- <span class="glyphicon glyphicon-eur" aria-hidden="true"></span>&nbsp; -->
+					<!-- @product.price -->
+					<%= number_to_euro("#{@product.price}") %>
 				</p>
 				
 				<p>Average Rating: <span class="rated" data-score="<%= @product.average_rating %>"></span> </p>
 
-				<!-- if (@product.highest_rating_comment) -->
-					<!-- <strong>Top Review:</strong> -->
-					<!-- <p> -->
-						<!-- <em>< @product.highest_rating_comment.body </em> -->
-					<!-- </p> -->
-				<!-- < end > -->
+				<%= form_with(url: '/payments/create') do |form| %>
+				  <%= render partial: "shared/stripe_checkout_button" %>
+				<% end %>
 
 				<%= render 'new_comment' %>
 
 				<%= render 'comments' %><br>
 
 				<div class="actions">
-					<!-- link_to 'Edit', edit_product_path(@product) > | -->
 					<%= link_to 'Back', products_path, class:"btn btn-warning" %>
 					<% if signed_in? && current_user.admin? %>
 						<%= link_to 'Edit', edit_product_path(@product), class:"btn btn-danger" %>

@@ -38,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
+  # gem 'factory_girl_rails'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 # Use PostgreSQL on the Heroku (Production) server
@@ -64,3 +66,6 @@ gem 'cancancan', '~> 1.10'
 gem 'will_paginate', '~> 3.1.1'
 
 gem 'rails-controller-testing'
+
+gem 'stripe'
+
