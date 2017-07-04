@@ -29,6 +29,10 @@ Rails.application.routes.draw do
 
   post 'messages/new'
 
+  get 'payments/create'
+
+  post 'payments/create'
+
   Bike_Berlin::Application.routes.draw do |map|
     resources :messages
     root :to => "messages#new"
