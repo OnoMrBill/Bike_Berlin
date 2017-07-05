@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    logger.debug "inside OrdersController create method..."
   end
 
   def destroy

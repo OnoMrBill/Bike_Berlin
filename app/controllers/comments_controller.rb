@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
 
+  logger.debug "inside CommentsController..."
+
 	def create
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
     @comment.user = current_user
+    logger.debug "CommentsController @product.id: #{@product.id}"
+    logger.debug "CommentsController @comment.body: #{@comment.body}"
+    logger.debug "CommentsController @comment.user.id: #{@comment.user.id}"
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
@@ -18,6 +23,8 @@ class CommentsController < ApplicationController
 	def destroy
     @comment = Comment.find(params[:id])
     product = @comment.product
+    logger.debug "about to delete comment..."
+    logger.debug "product comment is being deleted from: #{product}"
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to product, notice: 'Review was successfully destroyed.' }

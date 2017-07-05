@@ -15,6 +15,9 @@ class MessagesController < ApplicationController
     @name = @message.name
     @email = @message.email
     @content = @message.content    	
+    logger.debug "MessagesController @name: #{@name}"
+    logger.debug "MessagesController @email: #{@email}"
+    logger.debug "MessagesController @content: #{@content}"    
     if @message.valid?
      	UserMailer.contact_form(@email, @name, @content).deliver_now
       render :action => 'thank_you'

@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  # load_and_authorize_resource
+
+  logger.debug "running PaymentsController..."
 
   def create
     token = params[:stripeToken]
@@ -17,12 +18,14 @@ class PaymentsController < ApplicationController
         receipt_email: params[:stripeEmail]	      
 	    )
       if charge.paid
+      	logger.debug "creating order..."
         Order.create(product_id: @product.id, user_id: @user.id, total: @product.price)
       end			
 	  rescue Stripe::CardError => e
 	    # The card has been declined
 	    body = e.json_body
 	    err = body[:error]
+	    logger.debug "the card was declined...#{err[:message]}"
 	    flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
 	  end
 	  # redirect_to product_path(@product)

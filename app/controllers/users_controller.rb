@@ -22,6 +22,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    # byebug
+    logger.debug "inside show method of UsersController..."
+=begin
+      this should be a block comment in the show method of the UsersController...
+=end
   end
 
   # GET /users/new

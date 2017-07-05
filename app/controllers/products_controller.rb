@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    # byebug
+    logger.debug "inside index method of ProductsController..."
     if params[:q]
       search_term = params[:q]
       @products = Product.search(search_term)
@@ -15,11 +17,17 @@ class ProductsController < ApplicationController
       # @products = Product.all
       @products = Product.all.paginate(page: params[:page], per_page: 3)
     end
+    logger.debug "@products: #{@products}"
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+=begin
+      this is a block comment inside the show method of ProductsController...
+=end
+    logger.debug "inside the show method of ProductsController..."
+    byebug
     @comments = @product.comments.order("created_at DESC")
     @comments = @comments.paginate(page: params[:page], per_page: 5)
   end
