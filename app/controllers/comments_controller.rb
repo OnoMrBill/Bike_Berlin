@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  load_and_authorize_resource
 
   logger.debug "inside CommentsController..."
 
@@ -21,18 +24,25 @@ class CommentsController < ApplicationController
   end
 
 	def destroy
-    @comment = Comment.find(params[:id])
-    product = @comment.product
+    # @comment = Comment.find(params[:id])
+    # product = @comment.product
+    logger.debug "comment.id to be deleted: #{@comment.id}"
     logger.debug "about to delete comment..."
-    logger.debug "product comment is being deleted from: #{product}"
+    logger.debug "product comment is being deleted from: #{@product}"
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to product, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to @product, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }    
     end
 	end
 
 	private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_comment
+      @product = Product.find(params[:product_id])
+      @comment = @product.comments.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
 	  def comment_params
 	    params.require(:comment).permit(:user_id, :body, :rating)

@@ -43,6 +43,7 @@ GEM
     bcrypt (3.1.11-x64-mingw32)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
+    brakeman (3.7.0)
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.17.0)
@@ -201,6 +202,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  brakeman
   byebug
   cancancan (~> 1.10)
   coffee-rails (~> 4.2)
