@@ -1,0 +1,20 @@
+<hr>
+<div class="container">
+  <p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+  <!-- Check if user is signed in and, if so, if their admin flag is set to true... -->
+  <% if signed_in? && current_user.admin? %>
+    <!-- <div> -->
+      &nbsp;
+      <!-- Because it's a nested resource, do it this way... remove-circle -->
+      <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, 
+                   product_comment_path(comment.product, comment), 
+                   method: :delete, 
+                   data: { confirm: 'Are you sure?' } %>
+      <!-- If it was not a nested resource: link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } -->
+    <!-- </div> -->
+  <% end %>
+  </p>
+  <!-- <p>< "Rating: #{comment.rating}/5" ></p> -->
+  <span class="normal_text"><%= comment.body %></span><br>
+	<span class="rated" data-score="<%= comment.rating %>"></span>
+</div>
