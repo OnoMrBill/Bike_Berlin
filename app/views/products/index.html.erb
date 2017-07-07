@@ -13,8 +13,9 @@
 
 <div class="container" id="products">
   <div class="row">
-    <% @products.each do |product| %>
-      <%= render product %>
+    <% cache @products do %>
+    <!-- @products.each do |product| -->
+      <%= render @products %>
     <% end %>
   </div>
   <hr>

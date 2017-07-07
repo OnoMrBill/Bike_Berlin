@@ -23,9 +23,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-=begin
-      this is a block comment inside the show method of ProductsController...
-=end
     logger.debug "inside the show method of ProductsController..."
     # byebug
     @comments = @product.comments.order("created_at DESC")
