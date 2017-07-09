@@ -43,4 +43,16 @@ end
     #   end
 
     # end 
-    
+
+# The code opens the config/local_env.yml file, reads each key/value pair, and sets environment variables.
+
+# The code only runs if the file exists. If the file exists, the code 
+# overrides ENV variables set in the Unix shell. If you prefer to set 
+# environment variables in the Unix shell, don’t create the config/local_env.yml file.    
+config.before_configuration do
+  env_file = File.join(Rails.root, 'config', 'local_env.yml')
+  YAML.load(File.open(env_file)).each do |key, value|
+    ENV[key.to_s] = value
+  end if File.exists?(env_file)
+end    
+
