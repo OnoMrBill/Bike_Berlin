@@ -54,4 +54,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  #Devise - dynamic links show up inside emails in Dev environment
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  default_url_options
 end

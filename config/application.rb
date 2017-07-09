@@ -26,10 +26,26 @@ module Bike_Berlin
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
+
+    # config/application.rb
+    config.cache_store = :redis_store, "redis://localhost:6379/0/cache"
+    # , { expires_in: 90.minutes }
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # The code opens the config/local_env.yml file, reads each key/value pair, and sets environment variables.
+
+    # The code only runs if the file exists. If the file exists, the code 
+    # overrides ENV variables set in the Unix shell. If you prefer to set 
+    # environment variables in the Unix shell, don’t create the config/local_env.yml file.    
+    # config.before_configuration do
+    #   env_file = File.join(Rails.root, 'config', 'local_env.yml')
+    #   YAML.load(File.open(env_file)).each do |key, value|
+    #     ENV[key.to_s] = value
+    #   end if File.exists?(env_file)
+    # end       
+
   end
 end
 
@@ -44,15 +60,5 @@ end
 
     # end 
 
-# The code opens the config/local_env.yml file, reads each key/value pair, and sets environment variables.
-
-# The code only runs if the file exists. If the file exists, the code 
-# overrides ENV variables set in the Unix shell. If you prefer to set 
-# environment variables in the Unix shell, don’t create the config/local_env.yml file.    
-config.before_configuration do
-  env_file = File.join(Rails.root, 'config', 'local_env.yml')
-  YAML.load(File.open(env_file)).each do |key, value|
-    ENV[key.to_s] = value
-  end if File.exists?(env_file)
-end    
+ 
 
