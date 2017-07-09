@@ -9,6 +9,12 @@
 	        <% else %>
 	          <%= image_tag("noimg.jpg", class: "thumbnail img-responsive") %>
 	        <% end %>            
+					<h6>  
+					  Views:
+					  <span class="badge">
+					    <%= @product.views %>
+					  </span>
+					</h6>	        
 					<p>
 						<h2>
 						  	<%= @product.name %>

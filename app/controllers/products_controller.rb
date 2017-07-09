@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   def show
     logger.debug "inside the show method of ProductsController..."
     # byebug
+    @product.viewed!
     @comments = @product.comments.order("created_at DESC")
     @comments = @comments.paginate(page: params[:page], per_page: 5)
   end

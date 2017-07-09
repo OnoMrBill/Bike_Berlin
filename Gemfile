@@ -45,6 +45,7 @@ end
 # Use PostgreSQL on the Heroku (Production) server
 group :production do
   gem 'pg'
+  gem 'newrelic_rpm'
 end
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -72,3 +73,6 @@ gem 'stripe'
 gem 'brakeman', :require => false
 
 gem 'dalli'
+
+gem 'redis-rails'
+
