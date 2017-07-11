@@ -57,4 +57,6 @@ Rails.application.configure do
   #Devise - dynamic links show up inside emails in Dev environment
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   default_url_options
+
+  config.app_generators.javascript_engine = :javascript
 end
