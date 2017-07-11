@@ -2,7 +2,10 @@
 <div class="container">
   <p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
   <!-- Check if user is signed in and, if so, if their admin flag is set to true... -->
-  <% if signed_in? && current_user.admin? %>
+  <!-- if signed_in? && current_user.admin? -->
+  <!-- if current_user is essentially the same thing as if signed_in? as it returns false if no current_user object exists. -->
+  <!-- The object only exists if a user is actually signed in. -->
+  <% if current_user && current_user.admin? %>
     <!-- <div> -->
       &nbsp;
       <!-- Because it's a nested resource, do it this way... remove-circle -->

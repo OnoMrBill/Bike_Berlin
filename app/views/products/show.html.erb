@@ -1,7 +1,7 @@
 <div class="c-wrapper">
 	<div class="center-div">
 		<div class="container-fluid" id="showProduct">
-			<div class="col-sm-6 col-md-8">
+			<div class="col-sm-6 col-md-8" data-product-id="<%= @product.id %>">
 		  	<!-- image_tag(@product.image_url, class: "thumbnail img-responsive") -->
         <% if asset_exists? "#{@product.image_url}" %>
           <%= image_tag("#{@product.image_url}", class: "thumbnail img-responsive img-zoom", data_zoom_image:"#{@product.image_url}") %>
