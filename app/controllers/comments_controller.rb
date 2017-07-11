@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
-  load_and_authorize_resource
 
   logger.debug "inside CommentsController..."
 
@@ -12,8 +10,13 @@ class CommentsController < ApplicationController
     logger.debug "CommentsController @product.id: #{@product.id}"
     logger.debug "CommentsController @comment.body: #{@comment.body}"
     logger.debug "CommentsController @comment.user.id: #{@comment.user.id}"
+    # logger.debug "CommentsController current_user: #{@comment.user[:user].email}"
+    @user = User.find(@comment.user.id)
+    logger.debug "CommentsController @user.email: #{@user.email}"
+    logger.debug "CommentsController @user.first_name: #{@user.first_name}"
     respond_to do |format|
       if @comment.save
+        @product.set_latest_reviewer("#{@user.first_name}")
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
         format.js
