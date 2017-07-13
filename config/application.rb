@@ -34,6 +34,10 @@ module Bike_Berlin
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.generators do |g|
+      g.factory_girl dir: 'spec/factories'
+    end    
+
     # The code opens the config/local_env.yml file, reads each key/value pair, and sets environment variables.
 
     # The code only runs if the file exists. If the file exists, the code 

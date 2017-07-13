@@ -16,6 +16,12 @@ var refreshRating = function() {
   });
 };
 
+// var refreshReviewer = function() {
+//   $('#latest_reviwer')(
+//     ...
+//     )
+// }
+
 $(document).on('turbolinks:load ajaxSuccess', function() {
   refreshRating();
 

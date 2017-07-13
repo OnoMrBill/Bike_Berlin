@@ -18,7 +18,7 @@
 				  	logger.debug "BF: show.html.rb: #{@rev_exists}" %>
 				  <% if !@rev_exists.blank? %>
 						Latest reviewer:&nbsp;&nbsp;
-				  	<span class="badge badge-pill badge-warning">
+				  	<span id="latest_reviewer" class="badge badge-pill badge-warning">
 				  		<%= @product.get_latest_reviewer %>
 				  	</span>
 			  	<% end %>
